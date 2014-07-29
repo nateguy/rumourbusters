@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "paperclip", "~> 4.1"
+gem 'rails_12factor'
 gem 'noty-rails'
 gem 'devise'
 gem 'bootstrap-sass','~> 3.2.0'
