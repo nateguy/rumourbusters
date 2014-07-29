@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+
   #update registration controller
   #devise_for :users, :controllers => { registration: 'registration' }
   devise_for :users, :controllers => { registrations: 'registrations' }

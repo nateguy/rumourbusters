@@ -19,6 +19,9 @@ gem 'geocoder'
 gem 'tzinfo-data'
 gem 'spring',         group: :development
 gem 'pry'
+gem 'thin'
+gem 'faye'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

@@ -1,0 +1,14 @@
+<h1>Insta Blabs</h1>
+
+<div id="messages">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <%= message.content %>
+    </div>
+  <% end %>
+</div>
+
+<%= form_for Message.new, remote: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "Send" %>
+<% end %>

@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  var pusher = new Faye.Client('http://localhost:9292/faye');
+  pusher.subscribe('/messages/new', function (data) {
+    console.log(data);
+    // eval(data);
+    $('#messages').append(data);
+  });
+});
