@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="rumour_container">
+<p>
+  <h2>
+  <%= @rumour.title %></h2>
+
+  <h5><%=time_ago_in_words(@rumour.created_at) %> : <%= @rumour.created_at.strftime("%m-%d-%Y %a %I:%M%p") %></h5>
+  <p>
+
+
+
+  <%= @rumour.description %></p>
+
+  <br>
+  <%= image_tag @rumour.media.url(:medium) %>
+  <div class='row'>
+    <div class='column col40'>
+
+      <% total_response = UserRumour.where(rumour_id: @user_rumour.rumour_id).size %>
+      <% approval_response = UserRumour.where(rumour_id: @user_rumour.rumour_id, credible: true).size %>
+      <% disapproval_response = UserRumour.where(rumour_id: @user_rumour.rumour_id, credible: false).size %>
+      <div class='total approval_box'><%= total_response %> responses</div>
+
+      <div class='approved approval_box'><%= approval_response %> agree</div>
+
+      <div class='disappoved approval_box'><%= disapproval_response %> disagree</div>
+    </div>
+    <div class='column col60 percentage_box'>
+      <% if total_response >= 30 %>
+      <span id='span_approve'><%= 100*approval_response / total_response %>%</span>
+      <span id='span_disapprove'><%= 100*disapproval_response / total_response %>%</span>
+      <% else %>
+      <span id='span_approve'>?</span>
+      <% end %>
+
+
+    </div>
+  </div>
+
+  <div id='credible_box'>
+    <%= render 'user_rumours/credible', user_rumour: @user_rumour, rumour: @rumour %>
+
+  </div>
+</p>
+</div>

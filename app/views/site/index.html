@@ -1,26 +1,19 @@
 
 
 <div>
-  <% @locations.each do |i| %>
-  <% guides_loc = i.users.select { |isguide| isguide } %>
-  <% if guides_loc.any? == true %>
-  <li class="mapitem" data-guideexist='true' data-city='<%= i.city %>' data-lat=<%= i.latitude %> data-lon=<%= i.longitude %> ></li>
-  <% end %>
-  <% end %>
-</div>
 
-<div>
+  <% Rumour.all.each do |i| %>
 
-  <% @locations_guides_images.each do |l| %>
-  <li class="guidelocations" data-id='<%= l.id %>' data-firstname='<%= l.firstname %>' data-avatar='<%= l.avatar.url %>' data-location='<%= l.location.city %>'><%= l.firstname %><%= l.location.city %></li>
+  <li class="mapitem" data-description='<%= i.description %>' data-lat='<%= i.latitude %>' data-lng='<%= i.longitude %>' data-id='<%= i.id %>' data-title='<%= i.title %>'></li>
+
   <% end %>
-
 </div>
 
 
 
 
-<h1>Where are you going today?</h1>
+
+<h1>Find a rumour?</h1>
 <div class="map_container">
 
   <div id="map"></div>

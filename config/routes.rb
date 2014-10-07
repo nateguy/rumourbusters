@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user_rumours
+
+  resources :rumours
+
   resources :messages
 
   #update registration controller

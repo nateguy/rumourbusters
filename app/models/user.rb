@@ -6,13 +6,10 @@ class User < ActiveRecord::Base
 
   validates :surname, presence: true
   validates :firstname, presence: true
-  validates :description, presence: true
-  has_and_belongs_to_many :languages
+  validates :phone, presence: true
   has_many :comments
-  belongs_to :location
+  has_many :user_rumours
 
-  has_attached_file :avatar, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def self.current
     Thread.current[:user]

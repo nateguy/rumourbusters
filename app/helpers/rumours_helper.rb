@@ -1,0 +1,2 @@
+module RumoursHelper
+end

@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+
+  <% if UserRumour.where(user_id: current_user.id, rumour_id: @user_rumour.rumour_id).length < 1 %>
+    <%= form_for @user_rumour, remote: true do |f| %>
+
+      <div class="field">
+        <%= f.hidden_field :rumour_id, value: @rumour.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :credible, value: true %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Credible" %>
+
+      </div>
+    <% end %>
+    <%= form_for @user_rumour, remote: true do |f| %>
+
+      <div class="field">
+        <%= f.hidden_field :rumour_id, value: @rumour.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :credible, value: false %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Not Credible" %>
+
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

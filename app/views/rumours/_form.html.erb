@@ -1,0 +1,39 @@
+<%= form_for(@rumour) do |f| %>
+  <% if @rumour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rumour.errors.count, "error") %> prohibited this rumour from being saved:</h2>
+
+      <ul>
+      <% @rumour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div id="rumour_lat" class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div id="rumour_lng" class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div id="rumour_lng" class="field">
+    <%= f.label :media %><br>
+    <%= f.file_field :media %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

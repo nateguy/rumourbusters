@@ -1,9 +1,7 @@
 
 
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-<div class="edit_form_image">
-   <div id="image"><%= image_tag current_user.avatar.url %></div>
-</div>
+
 <div class="edit_form_box">
   <div class="edit_form">
 
@@ -24,28 +22,10 @@
       <div id='firstname_box'><%= f.label :firstname %><br />
         <%= f.text_field :firstname %></div>
     </div>
-    <div class='location'>
-    <%= f.label :Location %><br />
-      <%= f.collection_select :location_id, Location.all, :id, :city, {},
-          {:multiple => false} %></div>
 
-    <div class='languages'>
-    <%= f.label :languages %><br />
-      <%= f.collection_select :language_ids, Language.all, :id, :language, {},
-          {:multiple => true} %>
+      <div id='firstname_box'><%= f.label :phone %><br />
+        <%= f.text_field :phone %></div>
 
-    </div>
-
-
-    <div><%= f.label :description %><br />
-      <%= f.text_field :description %></div>
-
-    <div class='guide'><%= f.label :'Do you still want to be a guide?' %>
-        <%= f.radio_button :isguide , true %>
-        <%= f.label :'Yes' %>
-        <%= f.radio_button :isguide , false %>
-        <%= f.label :'No' %>
-    </div>
 
     <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
       <%= f.password_field :password, autocomplete: "off" %></div>
@@ -55,11 +35,6 @@
 
     <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-    <div class='photo'>
-    <%= f.label :'New Photo?' %><br />
-    <%= f.file_field :avatar, class: "big_box" %>
-    </div>
 
     <div><%= f.submit "Update" %>
   <% end %>

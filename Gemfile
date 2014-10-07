@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "paperclip", "~> 4.1"
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rails_12factor'
 gem 'noty-rails'
 gem 'devise'

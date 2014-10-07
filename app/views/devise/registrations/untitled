@@ -1,0 +1,9 @@
+<div class="clicklocation">
+
+</div>
+
+<div>
+  <% @locations.each do |i| %>
+  <li class="mapitem" data-id='<%=i.id %>' data-city='<%= i.city %>' data-lat=<%= i.latitude %> data-lon=<%= i.longitude %> ></li>
+  <% end %>
+</div>

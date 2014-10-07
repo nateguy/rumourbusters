@@ -1,0 +1,13 @@
+<div>
+
+  <% Rumour.all.each do |i| %>
+
+  <li class="mapitem" data-description='<%= i.description %>' data-lat='<%= i.latitude %>' data-lng='<%= i.longitude %>' data-id='<%= i.id %>' data-title='<%= i.title %>'></li>
+
+  <% end %>
+</div>
+<h1>New rumour</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', rumours_path %>

@@ -1,0 +1,4 @@
+$("#credible_box").html("<%= escape_javascript render('credible') %>")
+$(".total").html("<%= UserRumour.where(rumour_id: @user_rumour.rumour_id, credible: true).size %> responses")
+$(".approved").html("<%= UserRumour.where(rumour_id: @user_rumour.rumour_id, credible: true).size %> agree")
+$(".disapproved").html("<%= UserRumour.where(rumour_id: @user_rumour.rumour_id, credible: false).size %> disagree")
