@@ -7,12 +7,13 @@
   <h5><%=time_ago_in_words(@rumour.created_at) %> : <%= @rumour.created_at.strftime("%m-%d-%Y %a %I:%M%p") %></h5>
   <p>
 
+  <li class="mapitem" data-lat='<%= @rumour.latitude %>' data-lng='<%= @rumour.longitude %>' data-id='<%= @rumour.id %>'></li>
 
 
   <%= @rumour.description %></p>
 
   <br>
-  <%= image_tag @rumour.media.url(:medium) %>
+  <%= image_tag @rumour.media.url(:medium) %><br>
   <div class='row'>
     <div class='column col40'>
 

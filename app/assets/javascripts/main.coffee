@@ -29,10 +29,17 @@ $ ->
               currentLng = lng
               break
 
-
         $('#rumour_latitude').val(currentLat)
         $('#rumour_longitude').val(currentLng)
 
+      if $("body.rumours.show").length
+        rumourInfo = $('.mapitem')[0]
+        lat = $(rumourInfo).data('lat')
+        lng = $(rumourInfo).data('lng')
+        rumourPosition = L.latLng(lat, lng)
+        console.log rumourPosition.distanceTo(currentPosition).toFixed(0)
+        if rumourPosition.distanceTo(currentPosition).toFixed(0) < 200
+          $("#credible_box").show()
 
   if $("body.site.index").length
 
