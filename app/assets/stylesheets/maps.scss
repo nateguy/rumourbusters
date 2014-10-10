@@ -1,3 +1,9 @@
+@media only screen
+and (max-width : 320px) {
+  width: 320px;
+  height: 400px;
+}
+
 #map {
   height: 400px;
 }
@@ -6,9 +12,3 @@ div.leaflet-bottom.leaflet-right {
   z-index: 1;
 }
 
-
-.signin_map #map {
-
-  height: 200px;
-  padding: 0 0 0 0;
-}

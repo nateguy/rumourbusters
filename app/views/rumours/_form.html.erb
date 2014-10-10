@@ -1,39 +1,47 @@
-<%= form_for(@rumour) do |f| %>
-  <% if @rumour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rumour.errors.count, "error") %> prohibited this rumour from being saved:</h2>
+<div class="signup_form">
+  <%= form_for(@rumour) do |f| %>
+    <% if @rumour.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@rumour.errors.count, "error") %> prohibited this rumour from being saved:</h2>
 
-      <ul>
-      <% @rumour.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @rumour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.text_field :title, placeholder: "Title", class: "input-lg form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.text_field :description, placeholder: "Description", class: "input-lg form-control"  %>
+        </div>
+      </div>
+
+    <div id="rumour_lat" class="field">
+
+      <%= f.hidden_field :latitude %>
     </div>
+    <div id="rumour_lng" class="field">
+
+      <%= f.hidden_field :longitude %>
+    </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label "Upload an image" %><br>
+          <%= f.file_field :media, class: "input-lg form-control" %>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class='form-group'><%= f.submit "Submit", class: "btn btn-primary btn-lg" %></div>
+      </div>
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div id="rumour_lat" class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div id="rumour_lng" class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div id="rumour_lng" class="field">
-    <%= f.label :media %><br>
-    <%= f.file_field :media %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

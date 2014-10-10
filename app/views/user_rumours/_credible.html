@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
 
   <% if UserRumour.where(user_id: current_user.id, rumour_id: @user_rumour.rumour_id).length < 1 %>
+
+    <div class="user_rumour_btn_container">
     <%= form_for @user_rumour, remote: true do |f| %>
 
       <div class="field">
@@ -9,10 +11,15 @@
         <%= f.hidden_field :credible, value: true %>
       </div>
       <div class="actions">
-        <%= f.submit "Credible" %>
+        <div class='form-group'>
+        <%= f.submit "Credible", class: "btn btn-primary btn-lg btn-approved" %>
+        </div>
 
       </div>
+    </div>
     <% end %>
+
+    <div class="user_rumour_btn_container">
     <%= form_for @user_rumour, remote: true do |f| %>
 
       <div class="field">
@@ -21,9 +28,10 @@
         <%= f.hidden_field :credible, value: false %>
       </div>
       <div class="actions">
-        <%= f.submit "Not Credible" %>
+        <%= f.submit "Not Credible", class: "btn btn-primary btn-lg btn-disapproved" %>
 
       </div>
+    </div>
     <% end %>
   <% end %>
 <% end %>
