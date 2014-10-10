@@ -1,36 +1,45 @@
-
-
-
-
-<h2>Sign up</h2>
-
-
-
-<div class="signup_form_box">
-  <div class="signup_form">
+<div class="signup_form">
+  <h2>Sign up</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
-  <label>Personal Information</label>
-    <div class='email'>
-      <%= f.email_field :email, :placeholder => "E-mail", autofocus: true, class: "big_box" %>
+    <div class="col-lg-12">
+      <div class='form-group'>
+        <%= f.email_field :email, placeholder: "E-mail", autofocus: true, class: "input-lg form-control" %>
+      </div>
     </div>
-    <div class='name'>
-      <%= f.text_field :surname, :placeholder => "Last Name", class: "small_box" %><%= f.text_field :firstname, :placeholder => "First Name", class: "small_box"  %>
+    <div class="col-lg-12">
+      <div class='form-group'>
+        <%= f.text_field :surname, placeholder: "Last Name", class: "input-lg form-control" %>
+      </div>
     </div>
-    <div class='phone'>
-      <%= f.text_field :phone, :placeholder => "Phone", class: "big_box" %>
+    <div class="col-lg-12">
+      <div class='form-group'>
+        <%= f.text_field :firstname, placeholder: "First Name", class: "input-lg form-control"  %>
+      </div>
     </div>
-    <div class='password'><%= f.password_field :password, :placeholder => "Password", class: "small_box", autocomplete: "off" %><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "small_box", autocomplete: "off" %>
+    <div class="col-lg-12">
+      <div class='form-group'>
+        <%= f.text_field :phone, placeholder: "Phone", class: "input-lg form-control" %>
+      </div>
+    </div>
+    <hr>
+    <div class="col-lg-12">
+      <div class='form-group'><%= f.password_field :password, :placeholder => "Password", class: "input-lg form-control", autocomplete: "off" %>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class='form-group'>
+      <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "input-lg form-control", autocomplete: "off" %>
+      </div>
     </div>
 
 
 
-
-    <div><%= f.submit "Sign up" %></div>
-
+    <div class="col-lg-12">
+      <div class='form-group'><%= f.submit "Sign up", class: "btn btn-primary btn-lg" %></div>
+    </div>
   <% end %>
-  </div>
+
 </div>
 
 

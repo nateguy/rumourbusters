@@ -20,7 +20,7 @@ gem 'tzinfo-data'
 gem 'spring',         group: :development
 gem 'pry'
 gem 'thin'
-gem 'faye'
+gem "paperclip-ffmpeg", "~> 1.0.1"
 
 group :production do
 	gem 'pg'

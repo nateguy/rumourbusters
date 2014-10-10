@@ -24,11 +24,15 @@ body {
 
   h5 {
     color: #cccccc;
-  }
-
-  p {
     font-size: 14pt;
   }
+
+  h2 {
+    font-size: 24pt;
+  }
+
+  font-size: 14pt;
+
 
   input[type="submit"] {
     width: 100px;
@@ -65,7 +69,7 @@ body {
 
 
   .approval_box {
-    font-size: 12pt;
+    font-size: 14pt;
   }
 }/*
 
@@ -88,25 +92,6 @@ body {
 
 
 
-.container_bg {
-
-  margin: 0 auto;
-  padding: 0 0 0 0;
-
-}
-
-.container {
-
-  margin: 0 auto;
-  padding: 0 0 0 0;
-  z-index: 1;
-  /* sass command */
-  .starter-template {
-    padding: 40px 15px;
-    text-align: center;
-  }
-
-}
 
 .leaflet-popup-content p {
   margin-bottom: 0px;
@@ -144,28 +129,25 @@ input, textarea {
 
 }
 
-.signup_form_box input[type="submit"] {
-  width: 130px;
-  height: 30px;
-}
 
 button, input[type="submit"] {
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(#5d9aff, #5d9aff 38%, #5891f0);
-  color: rgb(255,255,255);
-  border: 1px solid rgba(45, 102, 195, 1);
+  background-color: #000000;
+  background-image: -webkit-linear-gradient(#000000, #000000 38%, #333333);
+  color: #ffffff;
+  border: 1px solid #333333;
   text-align: center;
   vertical-align: middle;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  font-size: 12px;
+  font-size: 20pt;
   font-family: arial,sans-serif;
 }
 
 
 
 button:hover, input:hover[type="submit"] {
-  background-color: #2d66c3;
-  background-image: -webkit-linear-gradient(#5d9aff, #5d9aff 100%, #5891f0);
+  background-color: #aaaaaa;
+  color: #000000;
+  background-image: -webkit-linear-gradient(#aaaaaa, #aaaaaa 100%, #cccccc);
 
 }
 
@@ -188,7 +170,13 @@ select {
 
 
 .signup_form {
-  width: 400px;
+  h2 {
+    padding-left: 15px;
+    padding-bottom: 20px;
+  }
+  width: 60%;
+  min-width: 300px;
+  margin: 20px auto;
 }
 
 
@@ -210,6 +198,36 @@ select {
 
 
 
+.navbar-inverse {
+  background-color: #575756;
+
+
+  #post_rumour {
+    color: #00b066;
+  }
+  .navbar-nav > li > a {
+    color: #ffffff;
+    font-size: 14pt;
+  }
+
+
+
+  .navbar-nav > li:hover {
+    background-color: #ffffff;
+    a {
+    color: #000000;
+    }
+  }
+}
+
+
+
+
+.navbar-inverse .navbar-brand {
+  font-size: 22pt;
+  color: #00b066;
+}
+
 h1 {
   font-weight: 300;
   font-size: 50px;
@@ -218,14 +236,6 @@ h1 {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.nav.navbar-nav {
-  vertical-align: middle;
-  margin: 0 auto;
-}
-
-.nav.navbar-right {
-  margin: 0 auto;
-}
 
 td {
   margin: 2px 2px 2px 2px;
