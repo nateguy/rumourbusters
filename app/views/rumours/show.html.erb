@@ -7,7 +7,7 @@
       <h2>
       <%= @rumour.title %></h2>
 
-      <h5><%=time_ago_in_words(@rumour.created_at) %> : <%= @rumour.created_at.strftime("%m-%d-%Y %a %I:%M%p") %></h5>
+      <p class="time"><%=time_ago_in_words(@rumour.created_at) %> : <%= @rumour.created_at.strftime("%m-%d-%Y %a %I:%M%p") %></p>
       <p>
 
       <li class="mapitem" data-lat='<%= @rumour.latitude %>' data-lng='<%= @rumour.longitude %>' data-id='<%= @rumour.id %>'></li>

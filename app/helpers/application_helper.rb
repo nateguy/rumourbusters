@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def broadcast(channel, &block)
     message = {:channel => channel, :data => capture(&block), :ext => {:auth_token => FAYE_TOKEN}}
     uri = URI.parse("http://localhost:9292/faye")
@@ -19,7 +19,7 @@ module ApplicationHelper
       noties = flash.map do |name, message|
         if message.is_a?(String) || message.is_a?(ActiveModel::Errors)
           type = ( name == :notice ? "success" : "error" )
-          timeout = ( name == :notice ? 4000 : 30000 )
+          timeout = ( name == :notice ? 800 : 800 )
           text = ( message.is_a?(ActiveModel::Errors) ? "It's an error object" : message )
 
           "noty({ layout: 'top', type: '" + type +

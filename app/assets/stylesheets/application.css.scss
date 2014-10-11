@@ -45,16 +45,16 @@ body {
 .rumour_container {
   margin: 10px 20px 10px 20px;
 
-  h5 {
+  p.time {
     color: #cccccc;
-    font-size: 14pt;
+
   }
 
   h2 {
     font-size: 24pt;
   }
 
-  font-size: 14pt;
+  font-size: 13pt;
 
 
   input[type="submit"] {
@@ -261,9 +261,9 @@ select {
   color: #00b066;
 }
 
-h1 {
-  font-weight: 300;
-  font-size: 50px;
+h3 {
+  font-weight: 3000;
+  font-size: 22px;
   text-align: center;
   padding-bottom: 10px;
   -webkit-font-smoothing: subpixel-antialiased;
