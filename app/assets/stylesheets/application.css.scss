@@ -133,7 +133,7 @@ body {
 .map_container {
   background-color: rgba(255,255,255, 0.8);
 
-  padding: 10px 10px 10px 10px;
+  padding: 6px 6px 6px 6px;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   margin: 10px 10px 10px 10px;
@@ -142,7 +142,7 @@ body {
 
 .map_container {
 
-  margin: 10px 10px 10px 10px;
+  margin: 0;
 
   text-align: center;
 }
@@ -265,7 +265,6 @@ h3 {
   font-weight: 3000;
   font-size: 22px;
   text-align: center;
-  padding-bottom: 10px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
