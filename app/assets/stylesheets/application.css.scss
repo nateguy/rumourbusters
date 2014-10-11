@@ -14,7 +14,9 @@ body {
   font-family: "Lato", "Helvetica Neue", Arial;
   width: 100%;
 }
-
+.rumor_submit {
+  display: none;
+}
 .user_rumour_btn_container {
   display: table-cell;
   padding: 5px;

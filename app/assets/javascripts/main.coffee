@@ -27,10 +27,13 @@ $ ->
             if rumourPosition.distanceTo(currentPosition).toFixed(0) < 100
               currentLat = lat
               currentLng = lng
+
               break
 
         $('#rumour_latitude').val(currentLat)
         $('#rumour_longitude').val(currentLng)
+        if currentLat != ""
+          $(".rumor_submit").css("display", "block")
 
       if $("body.rumours.show").length
         rumourInfo = $('.mapitem')[0]
