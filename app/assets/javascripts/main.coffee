@@ -18,17 +18,18 @@ $ ->
 
       if $("body.rumours.new").length
 
-        for rumourInfo in $('.mapitem')
-            rumourInfo = $(rumourInfo)
-            lat = rumourInfo.data('lat')
-            lng = rumourInfo.data('lng')
-            rumourPosition = L.latLng(lat, lng)
-            console.log "dist " + rumourPosition.distanceTo(currentPosition).toFixed(0)
-            if rumourPosition.distanceTo(currentPosition).toFixed(0) < 100
-              currentLat = lat
-              currentLng = lng
+        if $('.mapitem').length > 0
+          for rumourInfo in $('.mapitem')
+              rumourInfo = $(rumourInfo)
+              lat = rumourInfo.data('lat')
+              lng = rumourInfo.data('lng')
+              rumourPosition = L.latLng(lat, lng)
+              console.log "dist " + rumourPosition.distanceTo(currentPosition).toFixed(0)
+              if rumourPosition.distanceTo(currentPosition).toFixed(0) < 100
+                currentLat = lat
+                currentLng = lng
 
-              break
+                break
 
         $('#rumour_latitude').val(currentLat)
         $('#rumour_longitude').val(currentLng)
