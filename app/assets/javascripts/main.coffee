@@ -32,7 +32,7 @@ $ ->
 
         $('#rumour_latitude').val(currentLat)
         $('#rumour_longitude').val(currentLng)
-        if currentLat != ""
+        if currentLat?
           $(".rumor_submit").css("display", "block")
 
       if $("body.rumours.show").length
