@@ -18,23 +18,22 @@ $ ->
 
       if $("body.rumours.new").length
 
-        if $('.mapitem').length > 0
-          for rumourInfo in $('.mapitem')
-              rumourInfo = $(rumourInfo)
-              lat = rumourInfo.data('lat')
-              lng = rumourInfo.data('lng')
-              rumourPosition = L.latLng(lat, lng)
-              console.log "dist " + rumourPosition.distanceTo(currentPosition).toFixed(0)
-              if rumourPosition.distanceTo(currentPosition).toFixed(0) < 100
-                currentLat = lat
-                currentLng = lng
-
-                break
+        for rumourInfo in $('.mapitem')
+            rumourInfo = $(rumourInfo)
+            lat = rumourInfo.data('lat')
+            lng = rumourInfo.data('lng')
+            rumourPosition = L.latLng(lat, lng)
+            console.log "dist " + rumourPosition.distanceTo(currentPosition).toFixed(0)
+            if rumourPosition.distanceTo(currentPosition).toFixed(0) < 100
+              currentLat = lat
+              currentLng = lng
+              break
 
         $('#rumour_latitude').val(currentLat)
         $('#rumour_longitude').val(currentLng)
         if currentLat?
           $(".rumor_submit").css("display", "block")
+          $(".rumor_submit_placeholder").css("display","none")
 
       if $("body.rumours.show").length
         rumourInfo = $('.mapitem')[0]
@@ -44,6 +43,7 @@ $ ->
         console.log rumourPosition.distanceTo(currentPosition).toFixed(0)
         if rumourPosition.distanceTo(currentPosition).toFixed(0) < 200
           $("#credible_box").show()
+          $("#credible_box_placeholder").hide()
 
   if $("body.site.index").length
 
