@@ -36,6 +36,7 @@ class RumoursController < ApplicationController
       mime_type = MIME::Types.type_for(name)
       puts "mine type"
       puts mime_type
+      puts mime_type.first
       media_file_name.content_type = mime_type.first if mime_type.first
     end
 
