@@ -16,6 +16,7 @@ gem 'bootstrap-sass','~> 3.2.0'
 gem 'aws-sdk'
 gem 'geocoder'
 # need to add tzinfo
+gem 'mime-types', :require => 'mime/types'
 gem 'tzinfo-data'
 gem 'spring',         group: :development
 gem 'pry'

@@ -31,6 +31,7 @@ class RumoursController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /rumours/1
   def update
     if @rumour.update(rumour_params)
@@ -54,6 +55,15 @@ class RumoursController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def rumour_params
+
       params.require(:rumour).permit(:description, :media, :title, :longitude, :latitude)
+    end
+
+    def set_mime_type(file)
+      if file.present? && file.content_type == 'application/octet-stream'
+        mime_type = MIME::Types.type_for(file.original_filename)
+        file.content_type = mime_type.first.content_type if mime_type.first
+      end
+      file
     end
 end
