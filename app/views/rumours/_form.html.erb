@@ -35,7 +35,10 @@
       <div class="col-lg-12">
         <div class='form-group'>
           <%= f.label "Upload an image" %><br>
-          <%= f.file_field :media, class: "input-lg form-control" %>
+          <%= f.file_field :media, accept: "image/*;capture=camera", class: "input-lg form-control" %>
+<!--
+          <input name="media" type="file" accept="image/*;capture=camera">
+ -->
         </div>
       </div>
       <!-- <input type="file" name="media" accept="image/*" capture="camera"> -->
