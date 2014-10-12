@@ -22,7 +22,19 @@ class RumoursController < ApplicationController
 
   # POST /rumours
   def create
+
     @rumour = Rumour.new(rumour_params)
+    puts params[:rumour][:media]
+    puts params[:media]
+    file = params[:rumour][:media]
+    name = file.original_filename
+    content = file.content_type
+    puts "reading"
+    puts content
+    puts MIME::Types.type_for(name).to_s
+    file.content_type = MIME::Types.type_for(name).to_s
+    puts file
+    # @rumour.media = file
 
     if @rumour.save
       redirect_to @rumour, notice: 'Rumour was successfully created.'
@@ -57,6 +69,7 @@ class RumoursController < ApplicationController
     def rumour_params
 
       params.require(:rumour).permit(:description, :media, :title, :longitude, :latitude)
+
     end
 
     def set_mime_type(file)
