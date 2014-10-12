@@ -26,14 +26,22 @@ class RumoursController < ApplicationController
     @rumour = Rumour.new(rumour_params)
     puts params[:rumour][:media]
     puts params[:media]
-    file = params[:rumour][:media]
-    name = file.original_filename
-    content = file.content_type
+    media_file_name = params[:rumour][:media]
+    name = media_file_name.original_filename
+    content = media_file_name.content_type
     puts "reading"
-    puts content
-    puts MIME::Types.type_for(name).to_s
-    file.content_type = MIME::Types.type_for(name).to_s
-    puts file
+
+
+    if media_file_name.content_type == 'application/octet-stream'
+      mime_type = MIME::Types.type_for(name)
+      puts "mine type"
+      puts mime_type
+      media_file_name.content_type = mime_type.first if mime_type.first
+    end
+
+    #puts MIME::Types.type_for(name).to_s
+    #file.content_type = MIME::Types.type_for(name).to_s
+    #puts file
     # @rumour.media = file
 
     if @rumour.save
