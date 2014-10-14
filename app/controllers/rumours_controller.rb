@@ -29,31 +29,31 @@ class RumoursController < ApplicationController
     # media_file_name = params[:rumour][:media]
     # name = media_file_name.original_filename
     # content = media_file_name.content_type
-    puts "testestest"
-    puts params[:rumour][:media].content_type
-    puts MIME::Types.type_for(params[:rumour][:media].original_filename)
+    # puts "testestest"
+    # puts params[:rumour][:media].content_type
+    # puts MIME::Types.type_for(params[:rumour][:media].original_filename)
 
-    if params[:rumour][:media].content_type == 'application/octet-stream'
-      mime_type = MIME::Types.type_for(params[:rumour][:media].original_filename)
-      puts "mine type"
-      puts mime_type
-      puts mime_type.first
-      params[:rumour][:media].content_type = mime_type.first if mime_type.first
-    end
-    @mimetype = MIME::Types.type_for(params[:rumour][:media].original_filename)
-    if defined? mime_type.first
-      puts mime_type.first
-      @first = mime_type.first
-    else
-      @first = 0
-    end
+    # if params[:rumour][:media].content_type == 'application/octet-stream'
+    #   mime_type = MIME::Types.type_for(params[:rumour][:media].original_filename)
+    #   puts "mine type"
+    #   puts mime_type
+    #   puts mime_type.first
+    #   params[:rumour][:media].content_type = mime_type.first if mime_type.first
+    # end
+    # @mimetype = MIME::Types.type_for(params[:rumour][:media].original_filename)
+    # if defined? mime_type.first
+    #   puts mime_type.first
+    #   @first = mime_type.first
+    # else
+    #   @first = 0
+    # end
     #puts MIME::Types.type_for(name).to_s
     #file.content_type = MIME::Types.type_for(name).to_s
     #puts file
     # @rumour.media = file
 
     if @rumour.save
-      #redirect_to @rumour, notice: 'Rumour was successfully created.'
+      redirect_to @rumour, notice: 'Rumour was successfully created.'
     else
       render :new
     end
