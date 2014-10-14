@@ -40,14 +40,19 @@ class RumoursController < ApplicationController
       puts mime_type.first
       params[:rumour][:media].content_type = mime_type.first if mime_type.first
     end
-
+    @mimetype = MIME::Types.type_for(params[:rumour][:media].original_filename)
+    if defined? mime_type.first
+      @first = mime_type.first
+    else
+      @first = 0
+    end
     #puts MIME::Types.type_for(name).to_s
     #file.content_type = MIME::Types.type_for(name).to_s
     #puts file
     # @rumour.media = file
 
     if @rumour.save
-      redirect_to @rumour, notice: 'Rumour was successfully created.'
+      #redirect_to @rumour, notice: 'Rumour was successfully created.'
     else
       render :new
     end
