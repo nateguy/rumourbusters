@@ -11,7 +11,8 @@ class Rumour < ActiveRecord::Base
 
 
 
-  has_attached_file :media, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :media, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png",
+    :url  => ":attachment/:id/:style/:filename"
   # validates_attachment :media, :content_type => { :content_type => "image/jpeg" }
   validates_attachment_content_type :media, content_type: [/\Aimage\/.*\Z/, "application/octet-stream"]
   puts :media

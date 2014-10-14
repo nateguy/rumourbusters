@@ -15,6 +15,7 @@ gem 'devise'
 gem 'bootstrap-sass','~> 3.2.0'
 gem 'aws-sdk'
 gem 'geocoder'
+gem 'aws-sdk'
 # need to add tzinfo
 gem 'mime-types'
 gem 'tzinfo-data'

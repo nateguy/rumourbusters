@@ -42,6 +42,7 @@ class RumoursController < ApplicationController
     end
     @mimetype = MIME::Types.type_for(params[:rumour][:media].original_filename)
     if defined? mime_type.first
+      puts mime_type.first
       @first = mime_type.first
     else
       @first = 0
