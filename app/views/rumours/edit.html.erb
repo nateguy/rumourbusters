@@ -1,3 +1,71 @@
-<h1>Editing rumour</h1>
+<h3>Witness unconfirmed rumour</h3>
 
-<%= render 'form' %>
+<div class="signup_form">
+  <%= form_for(@rumour) do |f| %>
+    <% if @rumour.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@rumour.errors.count, "error") %> prohibited this rumour from being saved:</h2>
+
+        <ul>
+        <% @rumour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label :witness %>
+          <h1 class="input-lg form-control"><%= current_user.firstname %></h1>
+
+          <%= f.hidden_field :witness_id, placeholder: "Witness", value: current_user.id, class: "input-lg form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label :title %>
+          <%= f.text_field :title, placeholder: "Title", class: "input-lg form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label "Approximate Location" %>
+          <%= f.text_field :location, placeholder: "Approximate Location", class: "input-lg form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label :description %>
+          <%= f.text_field :description, placeholder: "Description", class: "input-lg form-control"  %>
+        </div>
+      </div>
+
+    <div id="rumour_lat" class="field">
+
+      <%= f.hidden_field :latitude %>
+    </div>
+    <div id="rumour_lng" class="field">
+
+      <%= f.hidden_field :longitude %>
+    </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.label "Upload an image" %><br>
+          <%= f.file_field :media, accept: "image/*;capture=camera", class: "input-lg form-control" %>
+<!--
+          <input name="media" type="file" accept="image/*;capture=camera">
+ -->
+        </div>
+      </div>
+      <!-- <input type="file" name="media" accept="image/*" capture="camera"> -->
+      <div class="col-lg-12 rumor_submit">
+        <h6>Warning: Click below only if you have just witnessed this rumour. Your username will be displayed.</h6>
+        <div class='form-group'><%= f.submit "Submit", class: "btn btn-primary btn-lg" %></div>
+      </div>
+      <div class="col-lg-12 rumor_submit_placeholder">
+      Waiting for GPS location.. GPS must be enabled to witness a rumour.
+      </div>
+
+  <% end %>
+</div>

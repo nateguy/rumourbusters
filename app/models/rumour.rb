@@ -5,6 +5,9 @@ class Rumour < ActiveRecord::Base
   #     self.media_content_type = mime_type.first if mime_type.first
   #   end
   # end
+  validates :witness_id, presence: true, on: :update
+  validates :latitude, presence: true, on: :update
+  validates :longitude, presence: true, on: :update
   validates :title, presence: true
   validates :description, presence: true
   has_many :user_rumours

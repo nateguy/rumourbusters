@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :user_rumours
 
   resources :rumours
+  resources :rumours do
+    member do
+      put 'disown'
+    end
+  end
 
   resources :messages
 

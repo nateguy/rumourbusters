@@ -16,7 +16,7 @@ $ ->
       if $("body.site.index").length
         map.panTo([currentLat, currentLng])
 
-      if $("body.rumours.new").length
+      if $("body.rumours.edit").length
 
         for rumourInfo in $('.mapitem')
             rumourInfo = $(rumourInfo)

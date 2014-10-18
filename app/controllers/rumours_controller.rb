@@ -1,5 +1,5 @@
 class RumoursController < ApplicationController
-  before_action :set_rumour, only: [:show, :edit, :update, :destroy]
+  before_action :set_rumour, only: [:show, :disown, :edit, :update, :destroy]
 
   # GET /rumours
   def index
@@ -21,36 +21,23 @@ class RumoursController < ApplicationController
   end
 
   # POST /rumours
+
+  def disown
+    puts "disowning"
+    puts @rumour
+    puts @rumour.id
+    puts @rumour.witnessed
+    @rumour.update(witnessed: false)
+    redirect_to :back
+
+
+  end
+
   def create
 
     @rumour = Rumour.new(rumour_params)
-    # puts params[:rumour][:media]
-    # puts params[:media]
-    # media_file_name = params[:rumour][:media]
-    # name = media_file_name.original_filename
-    # content = media_file_name.content_type
-    # puts "testestest"
-    # puts params[:rumour][:media].content_type
-    # puts MIME::Types.type_for(params[:rumour][:media].original_filename)
+    @rumour.witnessed = false
 
-    # if params[:rumour][:media].content_type == 'application/octet-stream'
-    #   mime_type = MIME::Types.type_for(params[:rumour][:media].original_filename)
-    #   puts "mine type"
-    #   puts mime_type
-    #   puts mime_type.first
-    #   params[:rumour][:media].content_type = mime_type.first if mime_type.first
-    # end
-    # @mimetype = MIME::Types.type_for(params[:rumour][:media].original_filename)
-    # if defined? mime_type.first
-    #   puts mime_type.first
-    #   @first = mime_type.first
-    # else
-    #   @first = 0
-    # end
-    #puts MIME::Types.type_for(name).to_s
-    #file.content_type = MIME::Types.type_for(name).to_s
-    #puts file
-    # @rumour.media = file
 
     if @rumour.save
       redirect_to @rumour, notice: 'Rumour was successfully created.'
@@ -62,6 +49,10 @@ class RumoursController < ApplicationController
 
   # PATCH/PUT /rumours/1
   def update
+
+    unless params[:rumour][:witness_id].nil?
+      @rumour.witnessed = true
+    end
     if @rumour.update(rumour_params)
       redirect_to @rumour, notice: 'Rumour was successfully updated.'
     else
@@ -84,7 +75,7 @@ class RumoursController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def rumour_params
 
-      params.require(:rumour).permit(:description, :media, :title, :longitude, :latitude)
+      params.require(:rumour).permit(:witness_id, :witnessed, :description, :media, :title, :longitude, :latitude)
 
     end
 

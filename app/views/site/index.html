@@ -2,8 +2,7 @@
 
 <div>
 
-  <% Rumour.all.each do |i| %>
-
+  <% Rumour.where(witnessed: true).where(Rumour.arel_table[:longitude].gt(0)).all.each do |i| %>
   <li class="mapitem" data-description='<%= i.description %>' data-lat='<%= i.latitude %>' data-lng='<%= i.longitude %>' data-id='<%= i.id %>' data-title='<%= i.title %>'></li>
 
   <% end %>

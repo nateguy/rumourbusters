@@ -20,7 +20,12 @@
       </div>
       <div class="col-lg-12">
         <div class='form-group'>
-          <%= f.text_field :description, placeholder: "Description", class: "input-lg form-control"  %>
+          <%= f.text_field :location, placeholder: "Approximate Location", class: "input-lg form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class='form-group'>
+          <%= f.text_area :description, placeholder: "Description", class: "input-lg form-control"  %>
         </div>
       </div>
 
@@ -42,11 +47,11 @@
         </div>
       </div>
       <!-- <input type="file" name="media" accept="image/*" capture="camera"> -->
-      <div class="col-lg-12 rumor_submit">
-        <div class='form-group'><%= f.submit "Submit", class: "btn btn-primary btn-lg" %></div>
-      </div>
+<!--       <div class="col-lg-12 rumor_submit">
+
+      </div> -->
       <div class="col-lg-12 rumor_submit_placeholder">
-      Waiting for GPS location.. GPS must be enabled to post.
+        <div class='form-group'><%= f.submit "Submit", class: "btn btn-primary btn-lg" %></div>
       </div>
 
   <% end %>
